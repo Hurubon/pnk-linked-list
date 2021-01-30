@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <pnk/linked_list.h>
 
-int main()
+int main(void)
 {
     struct pnk_list list;
     pnk_list_init(&list);

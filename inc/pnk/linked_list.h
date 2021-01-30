@@ -6,6 +6,17 @@
 #include <stddef.h>
 #include <stdbool.h>
 
+#define pnk_list_entry(LIST_ELEM, STRUCT, MEMBER) (                          \
+    (STRUCT*) ( (char*)                                                      \
+        &(LIST_ELEM)->next - offsetof(STRUCT, MEMBER.next)                   \
+    )                                                                        \
+)
+
+#define pnk_list_for(ITER, LIST)                                             \
+for (struct pnk_list_elem* ITER = pnk_list_begin(LIST);                      \
+                           ITER != pnk_list_end(LIST);                       \
+                           ITER = pnk_list_next(ITER))
+
 struct pnk_list_elem
 {
     struct pnk_list_elem* prev;
