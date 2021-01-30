@@ -29,4 +29,14 @@ int main(void)
         printf("%d ", e->dummy);
     }
 
+    puts("");
+
+    while (!pnk_list_is_empty(&list))
+    {
+        struct pnk_list_elem* e = pnk_list_pop_front(&list);
+        struct test* t = pnk_list_entry(e, struct test, elem);
+        printf("%d ", t->dummy);
+        free(t);
+    }
+
 }

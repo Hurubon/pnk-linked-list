@@ -135,5 +135,5 @@ pnk_list_size(struct pnk_list* list)
 bool
 pnk_list_is_empty(struct pnk_list* list)
 {
-    return list->sentinel_head.next == list->sentinel_tail.prev;
+    return pnk_list_begin(list) == pnk_list_end(list);
 }
