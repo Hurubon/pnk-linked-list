@@ -123,12 +123,8 @@ size_t
 pnk_list_size(struct pnk_list* list)
 {
     size_t size = 0;
-    for (void* i = pnk_list_begin(list);
-         i      != pnk_list_end(list);
-         i       = pnk_list_next(i))
-    {
+    pnk_list_for(iter, list)
         size += 1;
-    }
     return size;
 }
 
